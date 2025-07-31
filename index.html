@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado ENEM - Standalone</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Modular CSS files for simulado -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/config.css">
+    <link rel="stylesheet" href="assets/css/simulado-screen.css">
+    <link rel="stylesheet" href="assets/css/results.css">
+    <link rel="stylesheet" href="assets/css/tabs.css">
+    <link rel="stylesheet" href="assets/css/modals.css">
+    <link rel="stylesheet" href="assets/css/skills.css">
+    <link rel="stylesheet" href="assets/css/saved-simulados.css">
+    <link rel="stylesheet" href="assets/css/tri-scores.css">
+    <!-- Patterns Tab CSS -->
+    <link rel="stylesheet" href="assets/css/patterns-tab.css">
+    <!-- Standalone Theme CSS -->
+    <link rel="stylesheet" href="assets/css/standalone-theme.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="layout">
+        <!-- Conteúdo principal -->
+        <div class="content" id="content">
+            <!-- Tela de configuração do simulado -->
+            <div id="config-screen" class="config-screen">
+                <div class="container">
+                    <h1><i class="fa fa-edit"></i> Simulados ENEM</h1>
+
+                    <div class="config-card">
+                        <h2>Configurar Simulado</h2>
+
+                        <div class="config-section">
+                            <h3><i class="fa fa-calendar"></i> Selecionar Ano</h3>
+                            <div id="year-selection" class="year-buttons">
+                                <!-- Anos serão carregados dinamicamente -->
+                            </div>
+                        </div>
+
+                        <div class="config-section">
+                            <h3><i class="fa fa-layer-group"></i> Área de Conhecimento</h3>
+                            <div class="exam-type-buttons">
+                                <button class="exam-type-btn" data-type="LC0">
+                                    <i class="fa fa-language"></i>
+                                    <span>LC - Inglês</span>
+                                    <small>Linguagens e Códigos (Inglês)</small>
+                                </button>
+                                <button class="exam-type-btn" data-type="LC1">
+                                    <i class="fa fa-language"></i>
+                                    <span>LC - Espanhol</span>
+                                    <small>Linguagens e Códigos (Espanhol)</small>
+                                </button>
+                                <button class="exam-type-btn" data-type="CH">
+                                    <i class="fa fa-users"></i>
+                                    <span>Ciências Humanas</span>
+                                    <small>História, Geografia, Filosofia, Sociologia</small>
+                                </button>
+                                <button class="exam-type-btn" data-type="CN">
+                                    <i class="fa fa-flask"></i>
+                                    <span>Ciências da Natureza</span>
+                                    <small>Física, Química, Biologia</small>
+                                </button>
+                                <button class="exam-type-btn" data-type="MT">
+                                    <i class="fa fa-calculator"></i>
+                                    <span>Matemática</span>
+                                    <small>Matemática e suas Tecnologias</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="config-section">
+                            <h3><i class="fa fa-palette"></i> Cor da Prova</h3>
+                            <div class="color-selection">
+                                <!-- Cores serão carregadas dinamicamente baseadas no ano selecionado -->
+                            </div>
+                        </div>
+
+                        <!-- Seleção de idioma para 1º dia -->
+                        <div id="language-section" class="config-section" style="display: none;">
+                            <h3><i class="fa fa-language"></i> Idioma Estrangeiro</h3>
+                            <div class="language-buttons">
+                                <button class="language-btn" data-language="LC0">
+                                    <i class="fa fa-flag-usa"></i>
+                                    <span>Inglês</span>
+                                    <small>Língua Inglesa e suas Tecnologias</small>
+                                </button>
+                                <button class="language-btn" data-language="LC1">
+                                    <i class="fa fa-flag"></i>
+                                    <span>Espanhol</span>
+                                    <small>Língua Espanhola e suas Tecnologias</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="config-actions">
+                            <button id="start-simulado" class="start-btn" disabled>
+                                <i class="fa fa-play"></i> Iniciar Simulado
+                            </button>
+                            <button id="view-saved-simulados" class="saved-btn">
+                                <i class="fa fa-history"></i> Ver Simulados Salvos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tela de simulados salvos -->
+            <div id="saved-simulados-screen" class="saved-simulados-screen" style="display: none;">
+                <div class="container">
+                    <div class="saved-simulados-card">
+                        <div class="saved-header">
+                            <h2><i class="fa fa-history"></i> Simulados Salvos</h2>
+                            <button id="back-to-config" class="back-btn">
+                                <i class="fa fa-arrow-left"></i> Voltar
+                            </button>
+                        </div>
+
+                        <div class="saved-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="total-saved">0</span>
+                                <span class="stat-label">Total Salvos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="average-performance">0%</span>
+                                <span class="stat-label">Média Geral</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="best-performance">0%</span>
+                                <span class="stat-label">Melhor Resultado</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="recent-count">0</span>
+                                <span class="stat-label">Últimos 7 dias</span>
+                            </div>
+                        </div>
+
+                        <div class="saved-simulados-list">
+                            <div id="saved-simulados-container">
+                                <!-- Lista de simulados será carregada aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tela do simulado -->
+            <div id="simulado-screen" class="simulado-screen" style="display: none;">
+                <div class="simulado-header">
+                    <div class="container">
+                        <div class="simulado-info">
+                            <h2 id="simulado-title">Simulado ENEM</h2>
+                            <div class="simulado-meta">
+                                <span id="simulado-year"></span>
+                                <span id="simulado-type"></span>
+                                <span id="simulado-color"></span>
+                            </div>
+                        </div>
+                        <div class="simulado-actions">
+                            <div class="gabarito-input-container">
+                                <label for="gabarito-input">
+                                    <i class="fa fa-keyboard"></i> Entrada Rápida de Gabarito:
+                                </label>
+                                <div class="input-row">
+                                    <input type="text" id="gabarito-input" placeholder="Ex: ABCDE.X*AB..."
+                                        title="Digite as respostas (A, B, C, D, E) ou use X, ., * para questões em branco"
+                                        maxlength="45">
+                                    <button id="apply-gabarito" class="apply-btn" title="Aplicar gabarito">
+                                        <i class="fa fa-check"></i> Aplicar
+                                    </button>
+                                    <button id="clear-gabarito" class="clear-btn" title="Limpar gabarito">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button id="finish-simulado" class="finish-btn">
+                                <i class="fa fa-check"></i> Finalizar
+                            </button>
+                            <button id="back-config" class="back-btn">
+                                <i class="fa fa-arrow-left"></i> Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="simulado-content">
+                        <div id="questions-container" class="questions-container">
+                            <!-- Questões serão carregadas aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tela de resultados -->
+            <div id="results-screen" class="results-screen" style="display: none;">
+                <div class="results-card">
+                    <h2><i class="fa fa-chart-bar"></i> Resultado do Simulado</h2>
+                    <div class="results-tabs">
+                        <button class="tab-button active" data-tab="geral">
+                            <i class="fa fa-chart-line"></i> Visão Geral
+                        </button>
+                        <button class="tab-button" data-tab="habilidades">
+                            <i class="fa fa-chart-pie"></i> Habilidades
+                        </button>
+                        <button class="tab-button" data-tab="dificuldade">
+                            <i class="fa fa-signal"></i> Dificuldade
+                        </button>
+                        <button class="tab-button" data-tab="padroes">
+                            <i class="fa fa-pattern"></i> Padrões
+                        </button>
+                        <button class="tab-button" data-tab="gabarito">
+                            <i class="fa fa-clipboard-list"></i> Gabarito
+                        </button>
+                    </div>
+                    <!-- Conteúdo das Abas -->
+                    <div class="tab-content">
+                        <!-- Aba Geral -->
+                        <div id="tab-geral" class="tab-panel active">
+                            <div class="results-summary">
+                                <div class="result-item">
+                                    <span class="result-label">Total de Questões:</span>
+                                    <span id="total-questions" class="result-value">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Acertos:</span>
+                                    <span id="correct-answers" class="result-value">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Erros:</span>
+                                    <span id="wrong-answers" class="result-value">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Questões Anuladas:</span>
+                                    <span id="cancelled-questions" class="result-value">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Aproveitamento:</span>
+                                    <span id="performance" class="result-value">0%</span>
+                                </div>
+                            </div>
+
+                            <div class="general-stats">
+                                <h3><i class="fa fa-chart-bar"></i> Estatísticas Gerais</h3>
+                                <div id="general-stats-content">
+                                    <!-- Conteúdo será gerado dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba Habilidades -->
+                        <div id="tab-habilidades" class="tab-panel">
+                            <div class="skills-report">
+                                <h3><i class="fa fa-chart-pie"></i> Desempenho por Habilidade</h3>
+                                <div id="skills-container" class="skills-container">
+                                    <!-- Conteúdo será gerado dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba Dificuldade -->
+                        <div id="tab-dificuldade" class="tab-panel">
+                            <h3><i class="fa fa-signal"></i> Análise por Dificuldade</h3>
+                            <div id="difficulty-container" class="difficulty-container">
+                                <!-- Conteúdo será gerado dinamicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Aba Padrões -->
+                        <div id="tab-padroes" class="tab-panel">
+                            <h3><i class="fa fa-pattern"></i> Padrões de Acerto</h3>
+                            <div id="patterns-container" class="patterns-container">
+                                <!-- Conteúdo será gerado dinamicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Aba Gabarito -->
+                        <div id="tab-gabarito" class="tab-panel">
+                            <h3><i class="fa fa-clipboard-list"></i> Gabarito Detalhado</h3>
+                            <div id="answer-sheet-container" class="answer-sheet-container">
+                                <!-- Conteúdo será gerado dinamicamente -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <a href="." class="new-simulado-btn">
+                            <i class="fa fa-plus"></i> Novo Simulado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modais -->
+    <div id="finish-modal" class="modal" role="dialog" aria-labelledby="finish-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="finish-modal-title"><i class="fa fa-check-circle"></i> Finalizar Simulado</h3>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja finalizar o simulado?</p>
+                <p class="modal-warning">Após finalizar, você verá o resultado e não poderá mais alterar suas respostas.
+                </p>
+            </div>
+            <div class="modal-actions">
+                <button id="finish-cancel" class="modal-btn cancel-btn">
+                    <i class="fa fa-times"></i> Cancelar
+                </button>
+                <button id="finish-confirm" class="modal-btn confirm-btn">
+                    <i class="fa fa-check"></i> Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmação para voltar à configuração -->
+    <div id="back-modal" class="modal" role="dialog" aria-labelledby="back-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="back-modal-title"><i class="fa fa-exclamation-triangle"></i> Voltar à Configuração</h3>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja voltar?</p>
+                <p class="modal-warning">O progresso atual será perdido e você não poderá recuperar suas respostas.</p>
+            </div>
+            <div class="modal-actions">
+                <button id="back-cancel" class="modal-btn cancel-btn">
+                    <i class="fa fa-times"></i> Cancelar
+                </button>
+                <button id="back-confirm" class="modal-btn confirm-btn">
+                    <i class="fa fa-arrow-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmação para salvar simulado -->
+    <div id="save-simulado-modal" class="modal" role="dialog" aria-labelledby="save-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="save-modal-title"><i class="fa fa-save"></i> Salvar Simulado</h3>
+            </div>
+            <div class="modal-body">
+                <p>Deseja salvar este simulado para poder revisar os resultados mais tarde?</p>
+                <p class="modal-info">Você poderá acessar todos os dados e análises novamente através de "Ver Simulados
+                    Salvos".</p>
+            </div>
+            <div class="modal-actions">
+                <button id="save-cancel" class="modal-btn cancel-btn">
+                    <i class="fa fa-times"></i> Não Salvar
+                </button>
+                <button id="save-confirm" class="modal-btn confirm-btn">
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmação para excluir simulado -->
+    <div id="delete-simulado-modal" class="modal" role="dialog" aria-labelledby="delete-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="delete-modal-title"><i class="fa fa-trash"></i> Excluir Simulado</h3>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir este simulado?</p>
+                <p class="modal-warning">Esta ação não pode ser desfeita.</p>
+            </div>
+            <div class="modal-actions">
+                <button id="delete-cancel" class="modal-btn cancel-btn">
+                    <i class="fa fa-times"></i> Cancelar
+                </button>
+                <button id="delete-confirm" class="modal-btn confirm-btn">
+                    <i class="fa fa-trash"></i> Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="assets/js/simulado-main.js"></script>
+</body>
+
+</html>

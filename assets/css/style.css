@@ -1,0 +1,303 @@
+/* Alterado: definir temas sem duplicação */
+:root[data-theme="light"] {
+  --font-family: "Poppins", sans-serif;
+  --primary-color: #007bff;
+  --background: #f5f5f5;
+  --content-bg: #fff;
+  --text: #333;
+}
+:root[data-theme="dark"] {
+  --font-family: "Poppins", sans-serif;
+  --primary-color: #007bff;
+  --background: #212529;
+  --content-bg: #343a40;
+  --text: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.layout {
+  display: flex;
+}
+/* Menu Toggle Button */
+.menu-toggle {
+  background: #ddd;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px; /* aumentado */
+  cursor: pointer;
+  position: relative;
+  z-index: 1000;
+}
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: var(--content-bg);
+  border-right: 1px solid rgba(0, 0, 0, 0.1); /* borda mais leve */
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); /* sombra mais leve */
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  transform: translateX(-250px);
+  z-index: 999;
+  border-radius: 10px; /* adicionado */
+}
+.menu-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.menu-list {
+  list-style: none;
+}
+.menu-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.menu-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.menu-link i {
+  margin-right: 0.5rem;
+}
+/* Sidebar visível no desktop */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .content {
+    margin-left: 250px;
+  }
+}
+/* Content */
+.content {
+  flex-grow: 1;
+  padding: 1rem;
+}
+/* Filter Container */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--content-bg);
+  border: 1px solid rgba(0, 0, 0, 0.1); /* borda mais leve */
+  padding: 1rem;
+  border-radius: 10px; /* aumentado */
+  align-items: center;
+}
+.filter-header {
+  margin-bottom: 1rem;
+}
+/* Removido: regras para .custom-select-container, .custom-select, .custom-input-container, .custom-input e ícones */
+
+/* Adicionado: estilos básicos para botões */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+.btn-outline-primary {
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  transition: background 0.3s, color 0.3s;
+}
+.btn-outline-primary.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.load-btn {
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 10px; /* aumentado */
+  cursor: pointer;
+}
+.load-btn i {
+  margin-right: 0.5rem;
+}
+.results {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.result-section {
+  background: var(--content-bg);
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* borda mais leve */
+  border-radius: 10px; /* aumentado */
+  margin-bottom: 1rem;
+}
+
+/* Estilos para os itens de questão */
+.question-item {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* borda mais leve */
+  border-radius: 10px; /* aumentado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: var(--text);
+}
+.question-item:hover {
+  background-color: #72c355;
+}
+.question-item.done {
+  background-color: #198754; /* verde mais forte e escuro */
+  border-color: #157347; /* borda mais escura */
+  color: #fff; /* texto branco */
+}
+
+/* Adicione esta regra para garantir que o texto de impacto fique branco quando concluído */
+.question-item.done .impact-info {
+  color: #fff;
+}
+
+/* Estilização para o impacto com porcentagem */
+.impact-info {
+  color: #777;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* Adicionado: estilos para o input de busca */
+.filter-search {
+  position: relative;
+  width: 100%;
+}
+.filter-search input {
+  width: 100%;
+  padding: 0.5rem 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.filter-search .input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+/* Estilos para o dropdown dos detalhes da questão */
+.dropdown-toggle {
+  margin-left: 0.5rem;
+}
+.question-details {
+  padding: 0.5rem 1rem;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #555;
+}
+/* Estilos para os ícones de dificuldade */
+
+.text-not-available {
+  color: #777;
+}
+.text-very-easy,
+.text-very-low {
+  color: #28a745; /* verde claro */
+}
+
+.text-easy,
+.text-low {
+  color: #17a2b8; /* azul claro */
+}
+.text-medium {
+  color: #ffc107; /* amarelo */
+}
+.text-hard,
+.text-high {
+  color: #fd7e14; /* laranja */
+}
+.text-very-hard,
+.text-very-high {
+  color: #dc3545; /* vermelho */
+}
+
+/* Container */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Container */
+
+/* Answer Sheet Cards Hover Effects */
+.summary-card-correct:hover,
+.summary-card-incorrect:hover,
+.summary-card-blank:hover,
+.summary-card-accuracy:hover,
+.summary-card-cancelled:hover,
+.summary-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.answer-sheet-table tr:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise da Profundidade DOM - Aba Padrões</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .results {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 0.5rem 1rem 0.5rem 0;
+            padding: 0.5rem 1rem;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .good {
+            background: #28a745;
+        }
+
+        #patterns-container {
+            border: 2px solid #007bff;
+            min-height: 200px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 Análise da Profundidade DOM - Aba Padrões</h1>
+
+        <div class="test-section">
+            <h2>Simulação da Aba Padrões</h2>
+            <div id="patterns-container">
+                <!-- Conteúdo será injetado aqui -->
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Métricas de Profundidade DOM</h2>
+            <div id="metrics"></div>
+            <div id="analysis" class="results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Oportunidades de Simplificação</h2>
+            <div id="opportunities" class="results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🌳 Estrutura DOM</h2>
+            <div id="structure" class="results"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Mock dos dados para teste
+        const mockAnswerString = "1010100110C01110010100101010110001001011C00101010110011010101100100110010011001101011010010110101001010101010100";
+        const mockQuestions = Array.from({ length: 90 }, (_, i) => ({
+            position: i + 1,
+            originalPosition: i + 1,
+            area: ["CN", "CH", "LC", "MT"][Math.floor(i / 22.5)],
+            cancelled: i === 10 || i === 55 // Algumas questões anuladas
+        }));
+        const mockAnswers = {};
+        mockQuestions.forEach(q => {
+            if (!q.cancelled) {
+                mockAnswers[q.position] = ["A", "B", "C", "D", "E"][Math.floor(Math.random() * 5)];
+            }
+        });
+
+        // Função para simular o conteúdo da aba Padrões
+        function renderPatternsContent() {
+            const container = document.getElementById('patterns-container');
+
+            // Simular o HTML atual que é gerado pelos renderers
+            const html = `
+                <h5><i class="fa fa-chart-bar"></i> Estatísticas Gerais</h5>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="text-align: center; padding: 1rem; background: #28a74515; border: 1px solid #28a74530; border-radius: 8px;">
+                        <i class="fa fa-check-circle" style="font-size: 1.5rem; color: #28a745; display: block; margin-bottom: 0.5rem;"></i>
+                        <strong style="font-size: 1.25rem; color: #28a745;">65</strong>
+                        <div style="font-size: 0.75rem; color: #666;">Corretas</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #dc354515; border: 1px solid #dc354530; border-radius: 8px;">
+                        <i class="fa fa-times-circle" style="font-size: 1.5rem; color: #dc3545; display: block; margin-bottom: 0.5rem;"></i>
+                        <strong style="font-size: 1.25rem; color: #dc3545;">23</strong>
+                        <div style="font-size: 0.75rem; color: #666;">Incorretas</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #3b82f615; border: 1px solid #3b82f630; border-radius: 8px;">
+                        <i class="fa fa-bullseye" style="font-size: 1.5rem; color: #3b82f6; display: block; margin-bottom: 0.5rem;"></i>
+                        <strong style="font-size: 1.25rem; color: #3b82f6;">73.9%</strong>
+                        <div style="font-size: 0.75rem; color: #666;">Precisão</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #f59e0b15; border: 1px solid #f59e0b30; border-radius: 8px;">
+                        <i class="fa fa-ban" style="font-size: 1.5rem; color: #f59e0b; display: block; margin-bottom: 0.5rem;"></i>
+                        <strong style="font-size: 1.25rem; color: #f59e0b;">2</strong>
+                        <div style="font-size: 0.75rem; color: #666;">Anuladas</div>
+                    </div>
+                </div>
+
+                <h5><i class="fa fa-th"></i> Padrão de Respostas</h5>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, 20px); gap: 3px; margin: 1rem 0; padding: 1rem; background: #f8f9fa; border-radius: 6px;">
+                    ${mockAnswerString.split("").map((bit, i) => {
+                const colors = { 1: "#28a745", 0: "#dc3545", C: "#f59e0b" };
+                return `<div title="Q${i + 1}" style="background: ${colors[bit]}; width: 20px; height: 20px; border-radius: 3px; display: flex; align-items: center; justify-content: center; cursor: pointer;">${bit === "C" ? "⊘" : ""}</div>`;
+            }).join("")}
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                    <div>
+                        <h5><i class="fa fa-chart-pie"></i> Frequência das Alternativas</h5>
+                        ${["A", "B", "C", "D", "E"].map(option => {
+                const count = Math.floor(Math.random() * 20) + 5;
+                const percentage = (count / 88) * 100;
+                const colors = { A: "#3b82f6", B: "#10b981", C: "#f59e0b", D: "#ef4444", E: "#8b5cf6" };
+
+                return `
+                                <div style="display: flex; align-items: center; padding: 0.6rem; margin-bottom: 0.4rem; background: ${colors[option]}15; border: 1px solid ${colors[option]}30; border-radius: 6px;">
+                                    <div style="background: ${colors[option]}; color: white; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 0.6rem;">${option}</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600; font-size: 0.85rem;">${count} questões (${percentage.toFixed(1)}%)</div>
+                                        <div style="margin-top: 0.2rem;">
+                                            <div style="background: rgba(0, 0, 0, 0.1); height: 3px; border-radius: 1.5px; overflow: hidden; position: relative;">
+                                                <div style="background: linear-gradient(90deg, ${colors[option]}, ${colors[option]}cc); height: 100%; width: ${percentage}%; border-radius: 1.5px; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+            }).join('')}
+                    </div>
+                    <div>
+                        <h5><i class="fa fa-clock"></i> Padrões Temporais</h5>
+                        ${[
+                    { label: "Questões 1-15", correct: 12, incorrect: 3, percentage: 80 },
+                    { label: "Questões 16-30", correct: 10, incorrect: 5, percentage: 66.7 },
+                    { label: "Questões 31-45", correct: 14, incorrect: 1, percentage: 93.3 },
+                    { label: "Questões 46-60", correct: 8, incorrect: 7, percentage: 53.3 },
+                    { label: "Questões 61-75", correct: 11, incorrect: 4, percentage: 73.3 },
+                    { label: "Questões 76-90", correct: 10, incorrect: 3, percentage: 76.9 }
+                ].map(chunk => {
+                    const color = chunk.percentage >= 70 ? "#10b981" : chunk.percentage >= 50 ? "#f59e0b" : "#ef4444";
+
+                    return `
+                                <div style="background: ${color}10; border: 1px solid ${color}30; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                        <strong style="font-size: 0.9rem;">${chunk.label}</strong>
+                                        <span style="background: ${color}; color: white; padding: 0.2rem 0.4rem; border-radius: 8px; font-size: 0.75rem;">${chunk.percentage.toFixed(1)}%</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #666;">
+                                        <span>✓${chunk.correct}</span>
+                                        <span>✗${chunk.incorrect}</span>
+                                        <span>∑${chunk.correct + chunk.incorrect}</span>
+                                    </div>
+                                    <div style="background: rgba(0, 0, 0, 0.1); height: 4px; border-radius: 2px; overflow: hidden; position: relative; margin-top: 0.5rem;">
+                                        <div style="background: linear-gradient(90deg, ${color}, ${color}cc); height: 100%; width: ${chunk.percentage}%; border-radius: 2px; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                                    </div>
+                                </div>
+                            `;
+                }).join('')}
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Função para analisar a profundidade DOM
+        function analyzeDOMDepth() {
+            const container = document.getElementById('patterns-container');
+
+            function getMaxDepth(element, currentDepth = 0) {
+                if (!element.children || element.children.length === 0) {
+                    return currentDepth;
+                }
+
+                let maxDepth = currentDepth;
+                for (let child of element.children) {
+                    const childDepth = getMaxDepth(child, currentDepth + 1);
+                    maxDepth = Math.max(maxDepth, childDepth);
+                }
+
+                return maxDepth;
+            }
+
+            function countElements(element) {
+                let count = 1;
+                for (let child of element.children) {
+                    count += countElements(child);
+                }
+                return count;
+            }
+
+            function findDeepestPath(element, currentPath = [], maxDepthInfo = { depth: 0, path: [] }) {
+                const currentDepth = currentPath.length;
+
+                if (currentDepth > maxDepthInfo.depth) {
+                    maxDepthInfo.depth = currentDepth;
+                    maxDepthInfo.path = [...currentPath];
+                }
+
+                for (let child of element.children) {
+                    const childInfo = {
+                        tag: child.tagName.toLowerCase(),
+                        classes: child.className || '',
+                        id: child.id || '',
+                        text: child.textContent?.substring(0, 30) || ''
+                    };
+                    findDeepestPath(child, [...currentPath, childInfo], maxDepthInfo);
+                }
+
+                return maxDepthInfo;
+            }
+
+            const maxDepth = getMaxDepth(container);
+            const totalElements = countElements(container);
+            const deepestPath = findDeepestPath(container);
+
+            return {
+                maxDepth,
+                totalElements,
+                deepestPath,
+                avgElementsPerLevel: totalElements / (maxDepth + 1)
+            };
+        }
+
+        // Função para identificar oportunidades de simplificação
+        function identifySimplificationOpportunities() {
+            const container = document.getElementById('patterns-container');
+            const opportunities = [];
+
+            function analyzeElement(element, path = []) {
+                // Verificar divs com apenas um filho
+                if (element.tagName === 'DIV' && element.children.length === 1) {
+                    opportunities.push({
+                        type: 'single-child-wrapper',
+                        path: path.join(' > '),
+                        suggestion: 'Remover wrapper desnecessário - div com apenas um filho',
+                        element: element
+                    });
+                }
+
+                // Verificar grids desnecessários
+                const style = window.getComputedStyle(element);
+                if (style.display === 'grid' && element.children.length <= 2) {
+                    opportunities.push({
+                        type: 'unnecessary-grid',
+                        path: path.join(' > '),
+                        suggestion: 'Grid com poucos itens pode ser substituído por flexbox',
+                        element: element
+                    });
+                }
+
+                // Verificar aninhamento de divs de estilo
+                if (element.tagName === 'DIV' && element.style.cssText && element.children.length === 1 && element.children[0].tagName === 'DIV') {
+                    opportunities.push({
+                        type: 'nested-style-divs',
+                        path: path.join(' > '),
+                        suggestion: 'Combinar estilos em um único elemento',
+                        element: element
+                    });
+                }
+
+                // Verificar elementos com apenas inline styles
+                if (element.style.cssText && element.style.cssText.length > 100) {
+                    opportunities.push({
+                        type: 'excessive-inline-styles',
+                        path: path.join(' > '),
+                        suggestion: 'Mover estilos para CSS classes',
+                        element: element
+                    });
+                }
+
+                for (let child of element.children) {
+                    analyzeElement(child, [...path, child.tagName.toLowerCase()]);
+                }
+            }
+
+            analyzeElement(container, ['#patterns-container']);
+            return opportunities;
+        }
+
+        // Função para criar estrutura visual do DOM
+        function createDOMStructure() {
+            const container = document.getElementById('patterns-container');
+
+            function buildTree(element, depth = 0) {
+                const indent = '  '.repeat(depth);
+                const tag = element.tagName.toLowerCase();
+                const id = element.id ? `#${element.id}` : '';
+                const classes = element.className ? `.${element.className.split(' ').join('.')}` : '';
+                const text = element.children.length === 0 ? element.textContent?.substring(0, 30) + '...' : '';
+
+                let result = `${indent}<${tag}${id}${classes}>${text ? ` "${text}"` : ''}\n`;
+
+                for (let child of element.children) {
+                    result += buildTree(child, depth + 1);
+                }
+
+                if (element.children.length > 0) {
+                    result += `${indent}</${tag}>\n`;
+                }
+
+                return result;
+            }
+
+            return buildTree(container);
+        }
+
+        // Executar análise
+        function runAnalysis() {
+            console.log('🔄 Renderizando conteúdo da aba Padrões...');
+            renderPatternsContent();
+
+            setTimeout(() => {
+                console.log('📊 Analisando profundidade DOM...');
+                const analysis = analyzeDOMDepth();
+                const opportunities = identifySimplificationOpportunities();
+                const structure = createDOMStructure();
+
+                // Mostrar métricas
+                const metricsDiv = document.getElementById('metrics');
+                metricsDiv.innerHTML = `
+                    <span class="metric ${analysis.maxDepth <= 3 ? 'good' : analysis.maxDepth <= 5 ? 'warning' : ''}">
+                        Profundidade Máxima: ${analysis.maxDepth}
+                    </span>
+                    <span class="metric ${analysis.totalElements <= 50 ? 'good' : analysis.totalElements <= 100 ? 'warning' : ''}">
+                        Total de Elementos: ${analysis.totalElements}
+                    </span>
+                    <span class="metric">
+                        Média por Nível: ${analysis.avgElementsPerLevel.toFixed(1)}
+                    </span>
+                `;
+
+                // Mostrar análise detalhada
+                const analysisDiv = document.getElementById('analysis');
+                analysisDiv.textContent = `
+Profundidade máxima: ${analysis.maxDepth} níveis
+Total de elementos: ${analysis.totalElements}
+Caminho mais profundo: ${analysis.deepestPath.path.map(p => p.tag).join(' > ')}
+
+Elementos mais profundos:
+${analysis.deepestPath.path.map((p, i) =>
+                    `  ${i + 1}. <${p.tag}> ${p.classes ? `class="${p.classes}"` : ''} ${p.id ? `id="${p.id}"` : ''}`
+                ).join('\n')}
+                `;
+
+                // Mostrar oportunidades
+                const opportunitiesDiv = document.getElementById('opportunities');
+                if (opportunities.length === 0) {
+                    opportunitiesDiv.textContent = '✅ Nenhuma oportunidade óbvia de simplificação encontrada!';
+                } else {
+                    opportunitiesDiv.textContent = `
+Encontradas ${opportunities.length} oportunidades de simplificação:
+
+${opportunities.map((opp, i) =>
+                        `${i + 1}. ${opp.type} em: ${opp.path}
+   Sugestão: ${opp.suggestion}
+`).join('\n')}
+                    `;
+                }
+
+                // Mostrar estrutura
+                const structureDiv = document.getElementById('structure');
+                structureDiv.textContent = structure;
+
+                console.log('✅ Análise concluída!');
+                console.log('📈 Métricas:', analysis);
+                console.log('🎯 Oportunidades:', opportunities);
+            }, 100);
+        }
+
+        // Executar quando a página carregar
+        runAnalysis();
+    </script>
+</body>
+
+</html>

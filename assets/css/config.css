@@ -1,0 +1,320 @@
+/* Estilos para tela de configuração */
+
+.config-screen {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.config-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.config-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.config-section {
+  margin-bottom: 2.5rem;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.config-section.disabled {
+  opacity: 0.5;
+}
+
+.config-section .step-message {
+  color: var(--warning-color);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--warning-color);
+  animation: slideInMessage 0.3s ease;
+}
+
+.config-section::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+.config-section.completed::before {
+  background: var(--success-color);
+}
+
+.config-section.active::before {
+  background: var(--primary-color);
+  animation: pulse 2s infinite;
+}
+
+/* Seleção de anos */
+.year-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.year-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.year-btn:hover,
+.year-btn.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.year-btn:disabled,
+.exam-type-btn:disabled,
+.language-btn:disabled,
+.color-btn:disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  filter: grayscale(50%);
+}
+
+.year-btn:not(:disabled):hover,
+.exam-type-btn:not(:disabled):hover,
+.language-btn:not(:disabled):hover,
+.color-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tipo de prova */
+.exam-type-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.exam-type-btn {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exam-type-btn i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  pointer-events: none;
+}
+
+.exam-type-btn span {
+  font-weight: 600;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.exam-type-btn small {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.exam-type-btn:hover,
+.exam-type-btn.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.exam-type-btn.selected i {
+  color: white;
+}
+
+/* Seleção de cor */
+.color-selection {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.color-btn {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  pointer-events: none;
+}
+
+.color-circle.blue {
+  background: #007bff;
+}
+.color-circle.yellow {
+  background: #ffd700;
+}
+.color-circle.white {
+  background: #ffffff;
+}
+.color-circle.pink {
+  background: #ff69b4;
+}
+.color-circle.green {
+  background: #28a745;
+}
+.color-circle.gray {
+  background: #6c757d;
+}
+
+.color-btn:hover,
+.color-btn.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Seleção de idioma */
+.language-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.language-btn {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.language-btn i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  pointer-events: none;
+}
+
+.language-btn span {
+  font-weight: 600;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.language-btn small {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.language-btn:hover,
+.language-btn.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.language-btn.selected i {
+  color: white;
+}
+
+/* Ações de configuração */
+.config-actions {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.start-btn,
+.saved-btn {
+  padding: 1rem 2rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.start-btn {
+  background: var(--success-color);
+}
+
+.saved-btn {
+  background: var(--primary-color);
+}
+
+.start-btn:hover:not(:disabled),
+.saved-btn:hover {
+  transform: translateY(-2px);
+}
+
+.start-btn:hover:not(:disabled) {
+  background: var(--success-hover);
+}
+
+.saved-btn:hover {
+  background: var(--primary-hover);
+}
+
+.start-btn:disabled {
+  background: var(--muted-color);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .config-card {
+    padding: 1.5rem;
+  }
+
+  .exam-type-buttons {
+    grid-template-columns: 1fr;
+  }
+}

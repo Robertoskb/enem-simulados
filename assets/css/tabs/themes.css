@@ -1,0 +1,121 @@
+/* 
+ * Temas para as tabs do simulado
+ */
+
+/* Tema escuro para análise de consistência TRI */
+[data-theme="dark"] .consistency-area {
+  background: #2c3e50;
+  border-color: #34495e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .consistency-area h6 {
+  color: #ecf0f1;
+}
+
+[data-theme="dark"] .consistency-stats .stat-item {
+  background: #34495e;
+  border-color: #4a5f7a;
+  color: #ecf0f1;
+}
+
+[data-theme="dark"] .consistency-stats .stat-item strong {
+  color: #bdc3c7;
+}
+
+[data-theme="dark"] .inconsistent-items h6 {
+  color: #bdc3c7;
+}
+
+[data-theme="dark"] .inconsistency-item {
+  background: #34495e;
+  border-color: #4a5f7a;
+}
+
+[data-theme="dark"] .inconsistency-item:hover {
+  background: #3b4a5e;
+  border-color: #5a6f8a;
+}
+
+[data-theme="dark"] .item-info strong {
+  background: #2980b9;
+  border-color: #3498db;
+  color: white;
+}
+
+[data-theme="dark"] .item-description {
+  color: #95a5a6;
+  border-left-color: #4a5f7a;
+}
+
+[data-theme="dark"] .consistency-analysis {
+  background: #34495e;
+  border-top-color: #4a5f7a;
+}
+
+[data-theme="dark"] .consistency-analysis small {
+  color: #bdc3c7;
+}
+
+[data-theme="dark"] .consistency-analysis strong {
+  color: #ecf0f1;
+}
+
+/* Tema escuro para frequência das alternativas */
+[data-theme="dark"] .option-item {
+  background: #34495e;
+  border-color: #4a5f7a;
+}
+
+[data-theme="dark"] .option-item:hover {
+  background: #3b4a5e;
+  border-color: #5a6f8a;
+}
+
+[data-theme="dark"] .option-label {
+  background: #2c3e50;
+  border-color: #4a5f7a;
+  color: #ecf0f1;
+}
+
+[data-theme="dark"] .option-bar {
+  background: #4a5f7a;
+  border-color: #5a6f8a;
+}
+
+[data-theme="dark"] .option-count {
+  background: #2c3e50;
+  border-color: #4a5f7a;
+  color: #ecf0f1;
+}
+
+[data-theme="dark"] .option-percentage {
+  color: #3498db;
+}
+
+[data-theme="dark"] .frequency-analysis {
+  background: #2c3e50;
+  border-color: #4a5f7a;
+  border-left-color: #3498db;
+}
+
+[data-theme="dark"] .frequency-analysis small {
+  color: #bdc3c7;
+}
+
+[data-theme="dark"] .frequency-analysis strong {
+  color: #ecf0f1;
+}
+
+[data-theme="dark"] .frequency-summary {
+  background: #2c3e50;
+  border-color: #4a5f7a;
+}
+
+[data-theme="dark"] .frequency-summary .summary-item {
+  color: #bdc3c7;
+}
+
+[data-theme="dark"] .frequency-summary strong {
+  color: #ecf0f1;
+}

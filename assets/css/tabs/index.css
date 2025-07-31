@@ -1,0 +1,24 @@
+/* 
+ * Arquivo principal para estilos das tabs do simulado
+ * Importa todos os módulos de estilos organizados por funcionalidade
+ */
+
+/* Base e componentes comuns */
+@import "./base.css";
+
+/* Tabs específicas */
+@import "./difficulty-tab.css";
+@import "./answer-sheet-tab.css";
+@import "./patterns-tab.css";
+@import "./tri-consistency-tab.css";
+@import "./frequency-tab.css";
+@import "./temporal-tab.css";
+
+/* Animações especiais */
+@import "./animations.css";
+
+/* Temas */
+@import "./themes.css";
+
+/* Responsividade global */
+@import "./responsive.css";

@@ -1,0 +1,105 @@
+/* Estilos base e variáveis CSS */
+
+/* Cores do tema */
+:root {
+  --success-color: #28a745;
+  --success-hover: #218838;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --info-hover: #138496;
+  --muted-color: #6c757d;
+  --primary-light: rgba(0, 123, 255, 0.1);
+  --hover-bg: rgba(0, 123, 255, 0.05);
+  --code-bg: #f8f9fa;
+  --code-color: #333;
+  --success-bg: #d4edda;
+  --success-color: #155724;
+  --error-bg: #f8d7da;
+  --error-color: #721c24;
+  --warning-bg: #fff3cd;
+  --warning-color: #856404;
+}
+
+[data-theme="dark"] {
+  --success-color: #28a745;
+  --success-hover: #34ce57;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --info-hover: #20c0d7;
+  --primary-light: rgba(0, 123, 255, 0.2);
+  --hover-bg: rgba(0, 123, 255, 0.1);
+  --code-bg: #2d3748;
+  --code-color: #e2e8f0;
+  --success-bg: #2d5a3d;
+  --success-color: #68d391;
+  --error-bg: #5a2d2d;
+  --error-color: #fc8181;
+  --warning-bg: #5a4d2d;
+  --warning-color: #f6e05e;
+}
+
+/* Animações globais */
+@keyframes slideInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInNotification {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

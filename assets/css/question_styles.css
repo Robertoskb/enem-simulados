@@ -1,0 +1,157 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.context {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.context-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.alternatives-intro {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.alternatives {
+  list-style-type: none;
+  padding: 0;
+}
+
+.alternatives li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alternatives li:hover {
+  background-color: #e9e9e9;
+}
+
+.alternatives li.selected {
+  background-color: #d4e6f1;
+  border-color: #5dade2;
+  transform: scale(1.02);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.alternatives li.correct {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.alternatives li.incorrect {
+  background-color: #ffebee;
+  border-color: #ef5350;
+}
+
+.alternatives li.correct::after {
+  content: " ✓";
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.alternatives li.incorrect::after {
+  content: " ✗";
+  color: #ef5350;
+  font-weight: bold;
+}
+
+.alternatives li.correct,
+.alternatives li.incorrect {
+  pointer-events: none;
+}
+
+.alternative-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.result.correct {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.result.incorrect {
+  background-color: #ffebee;
+  color: #ef5350;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .alternatives li {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  .context-image,
+  .alternative-image {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,307 @@
+/* Estilos para abas de resultados */
+
+/* Container das abas */
+.results-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+/* Botões das abas */
+.tab-button {
+  background: transparent;
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.tab-button:hover {
+  background: var(--hover-bg);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.tab-button i {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+  min-height: 400px;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeInTab 0.3s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Estilos específicos para cada aba */
+.general-stats,
+.difficulty-container,
+.patterns-container,
+.answer-sheet-container {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Grid para estatísticas gerais */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.stat-card i {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+.pattern-preview {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  background: var(--code-bg, #f8f9fa);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  word-break: break-all;
+  max-height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pattern-preview::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--code-bg, #f8f9fa);
+  padding: 0 0.25rem;
+}
+
+.percentage-big {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0.5rem 0;
+}
+
+.areas-count {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--success-color, #28a745);
+  margin: 0.5rem 0;
+}
+
+/* Grid para estatísticas por área */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.area-card {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.2s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-2px);
+}
+
+.area-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.area-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.area-percentage {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+/* Estilos para padrões */
+.pattern-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.pattern-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.pattern-string {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  background: var(--code-bg, #f8f9fa);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  word-break: break-all;
+  line-height: 1.4;
+  color: var(--code-color, #333);
+}
+
+/* Tabela de gabarito */
+.answer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.answer-table th,
+.answer-table td {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.answer-table th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.answer-table tr:nth-child(even) {
+  background: var(--bg-secondary);
+}
+
+.answer-correct {
+  background: var(--success-bg, #d4edda) !important;
+  color: var(--success-color, #155724);
+  font-weight: 600;
+}
+
+.answer-wrong {
+  background: var(--error-bg, #f8d7da) !important;
+  color: var(--error-color, #721c24);
+  font-weight: 600;
+}
+
+.answer-not-answered {
+  background: var(--warning-bg, #fff3cd) !important;
+  color: var(--warning-color, #856404);
+  font-style: italic;
+}
+
+/* Responsividade para abas */
+@media (max-width: 768px) {
+  .results-tabs {
+    flex-direction: column;
+    gap: 0;
+    border-bottom: none;
+  }
+
+  .tab-button {
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    border: 1px solid var(--border-color);
+  }
+
+  .tab-button.active::after {
+    display: none;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pattern-string {
+    font-size: 0.8rem;
+  }
+
+  .answer-table {
+    font-size: 0.8rem;
+  }
+
+  .answer-table th,
+  .answer-table td {
+    padding: 0.5rem 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tab-button i {
+    display: none;
+  }
+}
