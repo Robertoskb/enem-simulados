@@ -758,7 +758,6 @@ h3 {
 .general-stats h3,
 .skills-report h3,
 .difficulty-container h3,
-.patterns-container h3,
 .answer-sheet-container h3 {
   color: var(--text-primary) !important;
   margin-bottom: 2rem !important;
@@ -778,7 +777,6 @@ h3 {
 .general-stats h3::after,
 .skills-report h3::after,
 .difficulty-container h3::after,
-.patterns-container h3::after,
 .answer-sheet-container h3::after {
   content: "";
   flex: 1;
@@ -795,7 +793,6 @@ h3 {
   gap: 2.5rem !important;
 }
 
-.patterns-container,
 .answer-sheet-container {
   background: var(--bg-glass) !important;
   backdrop-filter: blur(15px) !important;
@@ -863,7 +860,7 @@ h3 {
 }
 
 .answer-sheet-container tr:hover td {
-  background: var(--bg-primary) !important;
+  background: var(--primary-light) !important;
   transform: scale(1.02);
   box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
 }
@@ -1165,7 +1162,7 @@ h3 {
   border-color: var(--primary);
 }
 
-/* Caixas de padrões estilizadas */
+/* Caixas de padrões estilizadas - REMOVIDAS - Conflitavam com patterns-tab.css
 .pattern-box {
   background: var(--bg-glass) !important;
   backdrop-filter: blur(15px) !important;
@@ -1205,11 +1202,23 @@ h3 {
   gap: 0.75rem !important;
 }
 
+.pattern-title {
+  color: var(--text-primary) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
 .pattern-title i {
   color: var(--primary) !important;
   font-size: 1.5rem !important;
 }
+*/
 
+/* Removidos estilos de pattern que conflitam com patterns-tab.css
 .pattern-content {
   color: var(--text-secondary) !important;
   line-height: 1.8 !important;
@@ -1240,6 +1249,7 @@ h3 {
   margin-left: 0.5rem !important;
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3) !important;
 }
+*/
 
 /* Estilos para padrão de bits na aba dificuldade */
 .difficulty-pattern {
@@ -1267,6 +1277,7 @@ h3 {
   font-size: 1.5rem !important;
 }
 
+/* Removido pattern-string que pode conflitar 
 .pattern-string {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -1280,6 +1291,7 @@ h3 {
   border-radius: var(--radius) !important;
   border: 1px solid var(--border) !important;
 }
+*/
 
 .bit {
   display: inline-block !important;
@@ -1427,7 +1439,7 @@ h3 {
 
 .stat-percentage {
   font-size: 0.9rem !important;
-  color: var(--text-muted) !important;
+  color: var(--text-secondary) !important;
   font-weight: 600 !important;
 }
 
@@ -1492,12 +1504,12 @@ h3 {
 }
 
 .difficulty-questions-table tr:nth-child(even) td {
-  background: var(--bg-tertiary) !important;
+  background: rgba(248, 249, 250, 0.05) !important;
 }
 
 .difficulty-questions-table tr:hover td {
-  background: var(--primary) !important;
-  color: white !important;
+  background: rgba(0, 123, 255, 0.1) !important;
+  color: var(--text-primary) !important;
   transform: scale(1.01) !important;
 }
 
@@ -1512,6 +1524,7 @@ h3 {
 }
 
 .level-muito-fácil,
+.level-m.-fácil,
 .level-muito-facil {
   background: linear-gradient(135deg, #22c55e, #16a34a) !important;
   color: white !important;
@@ -1548,7 +1561,7 @@ h3 {
 
 .answer-badge {
   display: inline-block !important;
-  padding: 0.3rem 0.6rem !important;
+  padding: 0.1rem 0.6rem !important;
   border-radius: 50% !important;
   font-weight: 700 !important;
   min-width: 32px !important;
@@ -2028,8 +2041,8 @@ h3 i,
   background: var(--bg-secondary) !important;
 }
 
-/* Estilos específicos para melhorar padrões e dificuldade */
-.pattern-item,
+/* Estilos específicos para melhorar padrões e dificuldade - REMOVIDOS */
+/* Conflitavam com patterns-tab.css - mantidos apenas para difficulty */
 .difficulty-item {
   background: var(--bg-glass) !important;
   backdrop-filter: blur(15px) !important;
@@ -2041,14 +2054,12 @@ h3 i,
   transition: var(--transition) !important;
 }
 
-.pattern-item:hover,
 .difficulty-item:hover {
   transform: translateY(-4px) !important;
   box-shadow: var(--shadow-glow), var(--shadow-xl) !important;
   border-color: var(--primary) !important;
 }
 
-.pattern-title,
 .difficulty-title {
   font-size: 1.25rem !important;
   font-weight: 700 !important;
@@ -2059,7 +2070,6 @@ h3 i,
   gap: 0.75rem !important;
 }
 
-.pattern-content,
 .difficulty-content {
   color: var(--text-secondary) !important;
   line-height: 1.6 !important;
@@ -2298,53 +2308,5 @@ h3 i,
   border: 2px solid rgba(245, 158, 11, 0.3) !important;
 }
 
-/* Estilos para a aba Padrões - Elementos específicos */
-
-/* Grid principal da aba padrões */
-.patterns-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
-  gap: 2rem !important;
-  margin-top: 2rem !important;
-}
-
-/* Cards de padrões */
-.pattern-card {
-  background: var(--bg-glass) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 1px solid var(--border-accent) !important;
-  border-radius: var(--radius-lg) !important;
-  padding: 2rem !important;
-  box-shadow: var(--shadow) !important;
-  transition: var(--transition) !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-.pattern-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--primary-gradient);
-}
-
-.pattern-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: var(--shadow-glow), var(--shadow-xl) !important;
-  border-color: var(--primary) !important;
-}
-
-.pattern-card h5 {
-  color: var(--text-primary) !important;
-  margin-bottom: 1.5rem !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  font-size: 1.25rem !important;
-  font-weight: 600 !important;
-  border-bottom: 2px solid var(--border) !important;
-  padding-bottom: 1rem !important;
-}
+/* Estilos para a aba Padrões - REMOVIDOS */
+/* Todos os estilos de padrões agora estão exclusivamente em patterns-tab.css */

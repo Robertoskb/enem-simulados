@@ -250,7 +250,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
       if (hasDifficultyData || level === "Anulada") {
         if (level === "Muito fácil") {
           iconClass = "fa-smile";
-          shortLevel = "M. Fácil";
+          shortLevel = "Muito Fácil";
         } else if (level === "Fácil") {
           iconClass = "fa-check-circle";
           shortLevel = "Fácil";
@@ -262,7 +262,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
           shortLevel = "Difícil";
         } else if (level === "Muito difícil") {
           iconClass = "fa-times-circle";
-          shortLevel = "M. Difícil";
+          shortLevel = "Muito Difícil";
         } else if (level === "Anulada") {
           iconClass = "fa-ban";
           shortLevel = "Anulada";

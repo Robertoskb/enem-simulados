@@ -1,0 +1,17 @@
+/* ===== STANDALONE THEME MODULAR ===== */
+/* Tema standalone modularizado para melhor organização e manutenibilidade */
+
+/* === FUNDAÇÕES === */
+@import url("./standalone/variables.css");
+@import url("./standalone/base.css");
+
+/* === LAYOUT === */
+@import url("./standalone/layout/main.css");
+
+/* === COMPONENTES === */
+@import url("./standalone/components/typography.css");
+@import url("./standalone/components/cards.css");
+@import url("./standalone/components/buttons.css");
+
+/* === COMPONENTES ESPECÍFICOS === */
+/* Aqui serão importados componentes específicos conforme necessário */

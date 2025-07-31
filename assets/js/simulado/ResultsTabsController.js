@@ -70,6 +70,12 @@ export class ResultsTabsController {
   }
 
   renderTabContent(tabName) {
+    console.log(`🎯 ResultsTabsController: renderTabContent('${tabName}')`, {
+      hasResultsData: !!this.resultsData,
+      renderer: !!this.renderers[tabName],
+    });
+
+    // Check for results data
     if (!this.resultsData) {
       console.warn(
         "ResultsTabsController: Dados de resultado não disponíveis para aba:",

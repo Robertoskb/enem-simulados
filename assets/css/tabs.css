@@ -1,5 +1,8 @@
 /* Estilos para abas de resultados */
 
+/* Importar estilos específicos das abas */
+@import "./tabs/index.css";
+
 /* Container das abas */
 .results-tabs {
   display: flex;
@@ -187,7 +190,8 @@
   color: var(--primary-color);
 }
 
-/* Estilos para padrões */
+/* Estilos para padrões - REMOVIDOS - Conflitavam com patterns-tab.css */
+/*
 .pattern-item {
   margin-bottom: 1.5rem;
   padding: 1rem;

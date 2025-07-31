@@ -53,7 +53,7 @@
 
 /* Área de análise de dificuldade */
 .difficulty-analysis {
-  background: var(--content-bg);
+  background: var(--bg-glass);
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

@@ -1,0 +1,267 @@
+/* ===== COMPONENTES DE CARDS ===== */
+
+/* Cards principais com glassmorphism */
+.card,
+.config-card,
+.saved-simulados-card,
+.results-card {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-accent) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: var(--space-2xl) !important;
+  box-shadow: var(--shadow-xl) !important;
+  margin-bottom: var(--space-xl);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.config-card::before,
+.saved-simulados-card::before,
+.results-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-card);
+  z-index: -1;
+}
+
+.card:hover,
+.config-card:hover,
+.saved-simulados-card:hover,
+.results-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow), var(--shadow-xl);
+  transform: translateY(-8px);
+}
+
+/* Variações de cards */
+.card-sm {
+  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.card-lg {
+  padding: var(--space-3xl) !important;
+  border-radius: var(--radius-xl) !important;
+}
+
+.card-flat {
+  box-shadow: var(--shadow) !important;
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-xl) !important;
+}
+
+/* Card header */
+.card-header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.card-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Card body */
+.card-body {
+  padding: 0;
+}
+
+/* Card footer */
+.card-footer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Seções de configuração melhoradas */
+.config-section {
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl);
+  background: var(--bg-glass);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-accent);
+  box-shadow: var(--shadow-inner);
+  position: relative;
+  overflow: hidden;
+}
+
+.config-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+}
+
+.config-section h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.config-section h3 i {
+  color: var(--primary);
+  font-size: var(--text-xl);
+}
+
+/* Header do simulado */
+.simulado-header {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-accent) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: var(--space-2xl) !important;
+  margin-bottom: var(--space-xl) !important;
+  box-shadow: var(--shadow-lg) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.simulado-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-card);
+  z-index: -1;
+}
+
+/* Cards de estatísticas */
+.stat-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-value {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cards responsivos */
+@media (max-width: 768px) {
+  .card,
+  .config-card,
+  .saved-simulados-card,
+  .results-card {
+    padding: var(--space-lg) !important;
+    margin-bottom: var(--space-lg);
+  }
+
+  .config-section {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .simulado-header {
+    padding: var(--space-lg) !important;
+  }
+
+  .stat-card {
+    padding: var(--space-md);
+  }
+
+  .stat-value {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* Cards especiais */
+.card-success {
+  border-color: var(--success) !important;
+}
+
+.card-success::before {
+  background: linear-gradient(135deg, var(--success), #059669);
+}
+
+.card-warning {
+  border-color: var(--warning) !important;
+}
+
+.card-warning::before {
+  background: linear-gradient(135deg, var(--warning), #d97706);
+}
+
+.card-error {
+  border-color: var(--error) !important;
+}
+
+.card-error::before {
+  background: linear-gradient(135deg, var(--error), #dc2626);
+}
+
+.card-info {
+  border-color: var(--info) !important;
+}
+
+.card-info::before {
+  background: linear-gradient(135deg, var(--info), #0891b2);
+}
