@@ -26,7 +26,7 @@ export class AnswerSheetTabRenderer extends BaseTabRenderer {
 
     let html = `
       <div class="answer-sheet" style="
-        background: white;
+        background: black;
         border-radius: 12px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         overflow: hidden;

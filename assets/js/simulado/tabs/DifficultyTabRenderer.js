@@ -271,7 +271,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
 
       html += `
         <div class="difficulty-stat-card">
-          <h6><i class="fa ${iconClass}"></i> ${shortLevel}</h6>
+          <h5><i class="fa ${iconClass}"></i> ${shortLevel}</h6>
           <div class="stat-content">
             <div class="stat-number">${
               level === "Anulada" ? data.total : `${data.correct}/${data.total}`
