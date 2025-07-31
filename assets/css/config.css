@@ -2,25 +2,25 @@
 
 .config-screen {
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .config-card {
   background: var(--card-bg);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .config-card h2 {
   color: var(--primary-color);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .config-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   position: relative;
   transition: opacity 0.3s ease;
 }
@@ -105,12 +105,12 @@
 /* Tipo de prova */
 .exam-type-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
 }
 
 .exam-type-btn {
-  padding: 1rem;
+  padding: 0.75rem;
   border: 2px solid var(--border-color);
   background: var(--card-bg);
   color: var(--text-color);
@@ -120,23 +120,23 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .exam-type-btn i {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--primary-color);
   pointer-events: none;
 }
 
 .exam-type-btn span {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   pointer-events: none;
 }
 
 .exam-type-btn small {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   opacity: 0.7;
   pointer-events: none;
 }
@@ -259,20 +259,20 @@
 /* Ações de configuração */
 .config-actions {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .start-btn,
 .saved-btn {
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
