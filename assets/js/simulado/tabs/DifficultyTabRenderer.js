@@ -456,7 +456,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
         : "fa-times";
 
       // Formatar habilidade
-      const habilityDisplay = question.hability 
+      const habilityDisplay = question.hability
         ? `H${question.hability}`
         : "<span class='text-muted'>N/A</span>";
 
