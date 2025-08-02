@@ -3,6 +3,7 @@
 /* Cores do tema */
 :root {
   --success-color: #28a745;
+  --success-dark: #1e7e34;
   --success-hover: #218838;
   --warning-color: #ffc107;
   --info-color: #17a2b8;

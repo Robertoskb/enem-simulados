@@ -124,6 +124,12 @@ export class UIController {
       finishBtn.addEventListener("click", originalHandler);
     }
 
+    // Botão de finalizar no final da página
+    const finishBottomBtn = document.getElementById("finish-simulado-bottom");
+    if (finishBottomBtn) {
+      finishBottomBtn.addEventListener("click", () => this.app.finishSimulado());
+    }
+
     const backBtn = document.getElementById("back-config");
     if (backBtn) {
       backBtn.addEventListener("click", () => this.app.backToConfig());
