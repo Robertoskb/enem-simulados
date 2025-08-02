@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/tri-scores.css">
     <!-- Standalone Theme CSS -->
     <link rel="stylesheet" href="assets/css/standalone-theme.css">
+    <!-- Mobile Responsivity for screens smaller than 400px -->
+    <link rel="stylesheet" href="assets/css/mobile-responsivity.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <!-- Fonts -->
@@ -50,28 +52,38 @@
                             <div class="exam-type-buttons">
                                 <button class="exam-type-btn" data-type="LC0">
                                     <i class="fa fa-language"></i>
-                                    <span>LC - Inglês</span>
-                                    <small>Linguagens e Códigos (Inglês)</small>
+                                    <div class="btn-content">
+                                        <span>LC - Inglês</span>
+                                        <small>Linguagens e Códigos (Inglês)</small>
+                                    </div>
                                 </button>
                                 <button class="exam-type-btn" data-type="LC1">
                                     <i class="fa fa-language"></i>
-                                    <span>LC - Espanhol</span>
-                                    <small>Linguagens e Códigos (Espanhol)</small>
+                                    <div class="btn-content">
+                                        <span>LC - Espanhol</span>
+                                        <small>Linguagens e Códigos (Espanhol)</small>
+                                    </div>
                                 </button>
                                 <button class="exam-type-btn" data-type="CH">
                                     <i class="fa fa-users"></i>
-                                    <span>Ciências Humanas</span>
-                                    <small>História, Geografia, Filosofia, Sociologia</small>
+                                    <div class="btn-content">
+                                        <span>Ciências Humanas</span>
+                                        <small>História, Geografia, Filosofia, Sociologia</small>
+                                    </div>
                                 </button>
                                 <button class="exam-type-btn" data-type="CN">
                                     <i class="fa fa-flask"></i>
-                                    <span>Ciências da Natureza</span>
-                                    <small>Física, Química, Biologia</small>
+                                    <div class="btn-content">
+                                        <span>Ciências da Natureza</span>
+                                        <small>Física, Química, Biologia</small>
+                                    </div>
                                 </button>
                                 <button class="exam-type-btn" data-type="MT">
                                     <i class="fa fa-calculator"></i>
-                                    <span>Matemática</span>
-                                    <small>Matemática e suas Tecnologias</small>
+                                    <div class="btn-content">
+                                        <span>Matemática</span>
+                                        <small>Matemática e suas Tecnologias</small>
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -89,13 +101,17 @@
                             <div class="language-buttons">
                                 <button class="language-btn" data-language="LC0">
                                     <i class="fa fa-flag-usa"></i>
-                                    <span>Inglês</span>
-                                    <small>Língua Inglesa e suas Tecnologias</small>
+                                    <div class="btn-content">
+                                        <span>Inglês</span>
+                                        <small>Língua Inglesa e suas Tecnologias</small>
+                                    </div>
                                 </button>
                                 <button class="language-btn" data-language="LC1">
                                     <i class="fa fa-flag"></i>
-                                    <span>Espanhol</span>
-                                    <small>Língua Espanhola e suas Tecnologias</small>
+                                    <div class="btn-content">
+                                        <span>Espanhol</span>
+                                        <small>Língua Espanhola e suas Tecnologias</small>
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -190,18 +206,19 @@
                     </div>
                 </div>
 
-                <div class="container">                <div class="simulado-content">
-                    <div id="questions-container" class="questions-container">
-                        <!-- Questões serão carregadas aqui -->
+                <div class="container">
+                    <div class="simulado-content">
+                        <div id="questions-container" class="questions-container">
+                            <!-- Questões serão carregadas aqui -->
+                        </div>
+
+                        <!-- Botão de finalizar no final das questões -->
+                        <div class="bottom-actions">
+                            <button id="finish-simulado-bottom" class="finish-btn-bottom">
+                                <i class="fa fa-check-circle"></i> Finalizar Simulado
+                            </button>
+                        </div>
                     </div>
-                    
-                    <!-- Botão de finalizar no final das questões -->
-                    <div class="bottom-actions">
-                        <button id="finish-simulado-bottom" class="finish-btn-bottom">
-                            <i class="fa fa-check-circle"></i> Finalizar Simulado
-                        </button>
-                    </div>
-                </div>
                 </div>
             </div>
             <!-- Tela de resultados -->

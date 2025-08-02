@@ -1,0 +1,868 @@
+/* Mobile Responsivity - Telas menores que 400px */
+
+/* Media query para telas muito pequenas (menor que 400px) */
+@media (max-width: 400px) {
+  /* Reset de margens e paddings para economizar espaço */
+  .container {
+    padding: 0.5rem !important;
+    margin: 0 !important;
+  }
+
+  /* Configuração do body e layout principal */
+  body {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  .layout {
+    padding: 0 !important;
+  }
+
+  .content {
+    padding: 0.5rem !important;
+    margin: 0 !important;
+  }
+
+  /* Tela de configuração otimizada */
+  .config-screen {
+    padding: 0.5rem 0 !important;
+    min-height: 100vh !important;
+  }
+
+  .config-card {
+    margin: 0.5rem !important;
+    padding: 1rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* Título principal reduzido */
+  .config-card h1,
+  h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+  }
+
+  .config-card h2,
+  h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .config-card h3,
+  h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Seções de configuração mais compactas */
+  .config-section {
+    margin-bottom: 1rem !important;
+    padding: 0.75rem !important;
+  }
+
+  /* Botões de ano em layout mais compacto */
+  .year-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .year-btn {
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Botões de área de conhecimento em coluna única */
+  .exam-type-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .exam-type-btn {
+    padding: 1rem !important;
+    border-radius: 10px !important;
+    min-height: 60px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    gap: 0.75rem !important;
+  }
+
+  .exam-type-btn i {
+    font-size: 1.5rem !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
+    width: 24px !important;
+    text-align: center !important;
+  }
+
+  .exam-type-btn .btn-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.25rem !important;
+    flex-grow: 1 !important;
+    text-align: left !important;
+  }
+
+  .exam-type-btn span {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    color: inherit !important;
+  }
+
+  .exam-type-btn small {
+    font-size: 0.8rem !important;
+    opacity: 0.8 !important;
+    line-height: 1.3 !important;
+    color: inherit !important;
+  }
+
+  /* Botões de idioma compactos */
+  .language-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .language-btn {
+    padding: 1rem !important;
+    border-radius: 10px !important;
+    min-height: 60px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    gap: 0.75rem !important;
+  }
+
+  .language-btn i {
+    font-size: 1.5rem !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .language-btn .btn-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.25rem !important;
+  }
+
+  /* Ações de configuração empilhadas */
+  .config-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-top: 1.5rem !important;
+    align-items: stretch !important;
+  }
+
+  .start-btn,
+  .saved-btn {
+    width: 100% !important;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    border-radius: 10px !important;
+    min-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Tela do simulado otimizada */
+  .simulado-header {
+    padding: 0.75rem 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .simulado-header .container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .simulado-info {
+    text-align: center !important;
+  }
+
+  .simulado-info h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .simulado-meta {
+    font-size: 0.8rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .simulado-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    align-items: stretch !important;
+  }
+
+  /* Input de gabarito responsivo */
+  .gabarito-input-container {
+    padding: 0.75rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .gabarito-input-container label {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .input-row {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  #gabarito-input {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+  }
+
+  .apply-btn,
+  .clear-btn {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+  }
+
+  /* Botões de ação do simulado */
+  .finish-btn,
+  .back-btn {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+  }
+
+  /* Container de questões otimizado */
+  .questions-container {
+    padding: 0.75rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .bottom-actions {
+    padding: 1rem 0.5rem !important;
+    text-align: center !important;
+  }
+
+  .finish-btn-bottom {
+    width: 100% !important;
+    max-width: 300px !important;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    border-radius: 10px !important;
+    min-height: 50px !important;
+  }
+
+  /* Tela de resultados otimizada */
+  .results-screen {
+    padding: 0.5rem !important;
+  }
+
+  .results-card {
+    margin: 0.5rem !important;
+    padding: 1rem !important;
+    border-radius: 10px !important;
+  }
+
+  .results-card h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Abas de resultados responsivas */
+  .results-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .tab-button {
+    flex: 1 1 calc(50% - 0.25rem) !important;
+    min-width: 0 !important;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+  }
+
+  .tab-button i {
+    font-size: 1rem !important;
+  }
+
+  /* Conteúdo das abas compacto */
+  .tab-panel {
+    padding: 1rem !important;
+  }
+
+  /* Resumo de resultados em coluna única */
+  .results-summary {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .result-item {
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    min-height: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .result-label {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .result-value {
+    font-size: 2rem !important;
+  }
+
+  /* Containers de análise compactos */
+  .skills-container,
+  .difficulty-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Estatísticas compactas */
+  .saved-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .stat-item {
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+    min-height: 70px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .stat-number {
+    font-size: 1.5rem !important;
+  }
+
+  .stat-label {
+    font-size: 0.8rem !important;
+  }
+
+  /* Modal responsivo */
+  .modal-content {
+    margin: 1rem !important;
+    padding: 1rem !important;
+    border-radius: 10px !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .modal-body {
+    padding: 1rem 0 !important;
+  }
+
+  .modal-body p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .modal-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .modal-btn {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+  }
+
+  /* Tabelas responsivas */
+  .table-responsive {
+    font-size: 0.8rem !important;
+  }
+
+  .answer-sheet-container table th,
+  .answer-sheet-container table td,
+  .difficulty-questions-table th,
+  .difficulty-questions-table td {
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Badges e status compactos */
+  .status-correto,
+  .status-correct,
+  .status-incorreto,
+  .status-incorrect,
+  .status-anulada,
+  .status-cancelled,
+  .status-nao-respondida,
+  .status-unanswered {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .difficulty-level-badge,
+  .status-badge {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.7rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  /* Padrão de bits compacto */
+  .bit {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 1px !important;
+  }
+
+  /* Ajustes gerais de tipografia */
+  small {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Garantir altura mínima para toque */
+  button,
+  .btn,
+  input[type="button"],
+  input[type="submit"],
+  .clickable {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  /* Remover animações pesadas em telas pequenas */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+
+  /* Reduzir sombras para melhor performance */
+  .box-shadow,
+  [class*="shadow"] {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Scrollbar fina em dispositivos móveis */
+  ::-webkit-scrollbar {
+    width: 4px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 2px !important;
+  }
+
+  /* Ajustar tamanho de ícones */
+  .fa,
+  .fas,
+  .far,
+  .fab {
+    font-size: inherit !important;
+  }
+
+  /* Otimizar espaçamento em listas */
+  .saved-simulados-list {
+    margin-top: 1rem !important;
+  }
+
+  /* Garantir que textos não quebrem inadequadamente */
+  .text-nowrap-mobile {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Melhorar legibilidade em fundos escuros */
+  [data-theme="dark"] {
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  [data-theme="dark"] h1,
+  [data-theme="dark"] h2,
+  [data-theme="dark"] h3,
+  [data-theme="dark"] .result-value {
+    text-shadow: var(--text-shadow) !important;
+  }
+}
+
+/* Media query adicional para telas muito pequenas (menor que 360px) */
+@media (max-width: 360px) {
+  /* Ajustes ainda mais agressivos para telas muito pequenas */
+  .container {
+    padding: 0.25rem !important;
+  }
+
+  .config-card,
+  .results-card,
+  .saved-simulados-card {
+    margin: 0.25rem !important;
+    padding: 0.75rem !important;
+  }
+
+  h1 {
+    font-size: 1.25rem !important;
+  }
+
+  h2 {
+    font-size: 1.1rem !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+  }
+
+  .exam-type-btn,
+  .language-btn {
+    padding: 0.75rem !important;
+    min-height: 55px !important;
+  }
+
+  .exam-type-btn span,
+  .language-btn span {
+    font-size: 0.9rem !important;
+  }
+
+  .exam-type-btn small,
+  .language-btn small {
+    font-size: 0.75rem !important;
+  }
+
+  .tab-button {
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.75rem !important;
+    gap: 0.125rem !important;
+  }
+
+  .tab-button i {
+    font-size: 0.9rem !important;
+  }
+
+  .result-value {
+    font-size: 1.75rem !important;
+  }
+
+  .modal-content {
+    margin: 0.5rem !important;
+    padding: 0.75rem !important;
+  }
+}
+
+/* Estilos para garantir melhor comportamento em viewports pequenos */
+@media (max-width: 400px) {
+  /* Força o viewport a não fazer zoom */
+  html {
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+
+  /* Garantir que não há overflow horizontal */
+  html,
+  body {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Ajustar o container principal */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  /* Melhorar a responsividade dos cards principais */
+  .config-card,
+  .results-card,
+  .saved-simulados-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ajustar títulos principais para não quebrar */
+  h1,
+  h2,
+  h3 {
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  /* Garantir que inputs não causem overflow */
+  #gabarito-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Melhorar o comportamento de tabelas */
+  .table-responsive {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Ajustar modais para telas pequenas */
+  .modal {
+    padding: 0.5rem !important;
+  }
+
+  .modal-content {
+    width: 100% !important;
+    max-width: calc(100vw - 1rem) !important;
+    margin: 0 auto !important;
+  }
+
+  /* Corrigir problemas de touch em iOS */
+  button,
+  .btn,
+  input[type="button"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border-radius: 8px !important;
+  }
+
+  /* Melhorar scrolling em dispositivos móveis */
+  .questions-container,
+  .tab-content {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Correções adicionais para problemas específicos identificados */
+@media (max-width: 400px) {
+  /* Corrigir o comportamento do container principal */
+  .layout {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Melhorar o espaçamento dos títulos das seções */
+  .config-section h3 {
+    font-size: 1rem !important;
+    padding: 0.5rem 0 !important;
+    margin-bottom: 0.75rem !important;
+    border-bottom: 2px solid var(--primary-color, #007bff) !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  /* Garantir que os botões tenham tamanho adequado para touch */
+  .year-btn,
+  .color-btn {
+    min-height: 48px !important;
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Melhorar o grid dos botões de ano para telas muito pequenas */
+  .year-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Melhorar o grid dos botões de cor */
+  .color-selection {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Corrigir problemas de overflow nos botões de área */
+  .exam-type-btn {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  .exam-type-btn .btn-content {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .exam-type-btn .btn-content span {
+    display: block !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+  }
+
+  .exam-type-btn .btn-content small {
+    display: block !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Melhorar os botões de ação */
+  .config-actions {
+    padding: 1rem 0 !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .start-btn,
+  .saved-btn {
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Corrigir problemas de margin/padding acumulados */
+  .config-card {
+    margin: 0.5rem auto !important;
+    max-width: calc(100vw - 1rem) !important;
+  }
+
+  /* Melhorar a visualização em tema escuro */
+  [data-theme="dark"] .config-section h3 {
+    color: #ffffff !important;
+    border-bottom-color: #007bff !important;
+  }
+
+  [data-theme="dark"] .year-btn,
+  [data-theme="dark"] .color-btn,
+  [data-theme="dark"] .exam-type-btn,
+  [data-theme="dark"] .language-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .year-btn.selected,
+  [data-theme="dark"] .color-btn.selected,
+  [data-theme="dark"] .exam-type-btn.selected,
+  [data-theme="dark"] .language-btn.selected {
+    background: #007bff !important;
+    border-color: #007bff !important;
+    color: #ffffff !important;
+  }
+
+  /* Garantir que não há scroll horizontal */
+  .config-screen,
+  .results-screen,
+  .saved-simulados-screen {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Melhorar o espaçamento entre seções */
+  .config-section + .config-section {
+    margin-top: 1.5rem !important;
+  }
+
+  /* Corrigir altura mínima em telas muito pequenas */
+  @supports (height: 100dvh) {
+    .config-screen {
+      min-height: 100dvh !important;
+    }
+  }
+}
+
+/* Correções específicas para telas entre 360px e 400px */
+@media (max-width: 400px) and (min-width: 360px) {
+  .year-buttons {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .color-selection {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Correções para telas menores que 360px */
+@media (max-width: 359px) {
+  .container {
+    padding: 0.25rem !important;
+  }
+
+  .config-card {
+    padding: 0.75rem !important;
+    margin: 0.25rem auto !important;
+  }
+
+  .year-buttons {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .color-selection {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .exam-type-btn {
+    padding: 0.75rem !important;
+    min-height: 55px !important;
+  }
+
+  .config-section h3 {
+    font-size: 0.95rem !important;
+  }
+
+  h1 {
+    font-size: 1.25rem !important;
+  }
+
+  h2 {
+    font-size: 1.1rem !important;
+  }
+}
