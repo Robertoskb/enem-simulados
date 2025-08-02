@@ -143,6 +143,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
 
       let difficulty = null;
       let difficultyLevel = "Desconhecida";
+      let hability = null;
 
       // CORREÇÃO: Questões anuladas não devem ter dados de dificuldade
       if (question.cancelled) {
@@ -158,6 +159,9 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
           meta[config.year][question.area][metaPosition]
         ) {
           const metaData = meta[config.year][question.area][metaPosition];
+
+          // Obter habilidade do meta.json
+          hability = metaData.hability;
 
           // Calcular dificuldade usando parâmetros da TRI: 100*B + 500
           if (
@@ -195,6 +199,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
         cancelled: question.cancelled,
         userAnswer: userAnswer || "-",
         correctAnswer: correctAnswer,
+        hability: hability,
       });
     });
 
@@ -422,6 +427,7 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
                   hasDifficultyData ? "Dificuldade (TRI)" : "Posição"
                 }</th>
                 <th><i class="fa fa-layer-group"></i> Nível</th>
+                <th><i class="fa fa-graduation-cap"></i> Habilidade</th>
                 <th><i class="fa fa-user-edit"></i> Sua Resposta</th>
                 <th><i class="fa fa-check-circle"></i> Gabarito</th>
                 <th><i class="fa fa-flag"></i> Status</th>
@@ -449,6 +455,11 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
         ? "fa-check"
         : "fa-times";
 
+      // Formatar habilidade
+      const habilityDisplay = question.hability 
+        ? `H${question.hability}`
+        : "<span class='text-muted'>N/A</span>";
+
       html += `
         <tr class="${statusClass}">
           <td><strong>${question.questionNumber}</strong></td>
@@ -471,6 +482,9 @@ export class DifficultyTabRenderer extends BaseTabRenderer {
               .replace(/\s+/g, "-")}">
               ${question.difficultyLevel}
             </span>
+          </td>
+          <td>
+            <span class="hability-badge">${habilityDisplay}</span>
           </td>
           <td><span class="answer-badge">${question.userAnswer}</span></td>
           <td><span class="answer-badge correct-answer">${
