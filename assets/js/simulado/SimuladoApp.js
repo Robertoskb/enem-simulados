@@ -282,7 +282,6 @@ export class SimuladoApp {
       if (triResult.success) {
         // Sucesso: mostrar nota
         triSection.innerHTML = `
-          <h4><i class="fa fa-calculator"></i> 🎯 Nota TRI Estimada</h4>
           <div class="tri-info-header">
             <p><strong>✨ Cálculo baseado no padrão de acertos</strong></p>
           </div>
