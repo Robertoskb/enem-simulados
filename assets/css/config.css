@@ -123,6 +123,13 @@
   gap: 0.4rem;
 }
 
+.exam-type-btn .btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: center;
+}
+
 .exam-type-btn i {
   font-size: 1.25rem;
   color: var(--primary-color);
@@ -225,6 +232,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.language-btn .btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
 }
 
 .language-btn i {
