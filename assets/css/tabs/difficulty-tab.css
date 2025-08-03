@@ -2,6 +2,21 @@
  * Estilos para a tab de análise por dificuldade
  */
 
+/* SCROLL HORIZONTAL GARANTIDO PARA A TABELA */
+.difficulty-questions-container,
+.difficulty-tab .table-responsive {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 100% !important;
+}
+
+.difficulty-questions-table {
+  width: 100% !important;
+  min-width: 700px !important;
+  table-layout: auto !important;
+}
+
 /* Sub-navegação de dificuldade */
 .difficulty-sub-nav {
   display: flex;
@@ -305,9 +320,11 @@
 }
 
 .difficulty-questions-table {
-  width: 100%;
-  border-collapse: collapse;
+  width: 100% !important;
+  min-width: 700px !important;
+  border-collapse: collapse !important;
   background: var(--content-bg);
+  table-layout: auto !important;
 }
 
 .difficulty-questions-table thead {
@@ -323,9 +340,13 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
   border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap !important;
+  min-width: auto !important;
 }
 
 .difficulty-questions-table td {
+  white-space: nowrap !important;
+  min-width: auto !important;
   padding: 1rem;
   border-bottom: 1px solid var(--border-color);
   font-size: 0.95rem;

@@ -86,14 +86,13 @@ body {
 
 .content {
   margin: 0 auto !important;
-  width: 100% !important;
-  max-width: 1200px;
+  width: min(100%, 1200px) !important;
   padding: 1rem;
   position: relative;
 }
 
 .container {
-  width: 100%;
+  width: min(100%, 1200px);
 }
 
 /* Esconder sidebar */

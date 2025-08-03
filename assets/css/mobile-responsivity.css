@@ -1,38 +1,56 @@
 /* Mobile Responsivity - Telas menores que 400px */
 
-/* Media query para telas muito pequenas (menor que 400px) */
+/* Media query para telas menores que 400px */
 @media (max-width: 400px) {
   /* Reset de margens e paddings para economizar espaço */
   .container {
-    padding: 0.5rem !important;
+    padding: 0.25rem !important;
     margin: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   /* Configuração do body e layout principal */
   body {
     font-size: 14px !important;
     line-height: 1.4 !important;
+    overflow-x: auto !important; /* Permitir scroll horizontal no body */
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .layout {
     padding: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   .content {
-    padding: 0.5rem !important;
+    padding: 0.25rem !important;
     margin: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   /* Tela de configuração otimizada */
   .config-screen {
-    padding: 0.5rem 0 !important;
+    padding: 0.25rem 0 !important;
     min-height: 100vh !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   .config-card {
-    margin: 0.5rem !important;
-    padding: 1rem !important;
+    margin: 0.25rem !important;
+    padding: 0.75rem !important;
     border-radius: 10px !important;
+    width: calc(100% - 0.5rem) !important;
+    max-width: calc(100vw - 0.5rem) !important;
+    box-sizing: border-box !important;
   }
 
   /* Título principal reduzido */
@@ -67,42 +85,54 @@
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.5rem !important;
     margin-top: 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .year-btn {
-    padding: 0.75rem 0.5rem !important;
-    font-size: 0.9rem !important;
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.8rem !important;
     border-radius: 8px !important;
-    min-height: 44px !important;
+    min-height: 40px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Botões de área de conhecimento em coluna única */
   .exam-type-buttons {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
     margin-top: 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .exam-type-btn {
-    padding: 1rem !important;
+    padding: 0.75rem !important;
     border-radius: 10px !important;
-    min-height: 60px !important;
+    min-height: 50px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     text-align: left !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .exam-type-btn i {
-    font-size: 1.5rem !important;
+    font-size: 1.25rem !important;
     margin-bottom: 0 !important;
     flex-shrink: 0 !important;
-    width: 24px !important;
+    width: 20px !important;
     text-align: center !important;
   }
 
@@ -110,6 +140,8 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
+    width: 100% !important;
+    overflow: hidden !important;
     gap: 0.25rem !important;
     flex-grow: 1 !important;
     text-align: left !important;
@@ -133,23 +165,29 @@
   .language-buttons {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
     margin-top: 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .language-btn {
-    padding: 1rem !important;
+    padding: 0.75rem !important;
     border-radius: 10px !important;
-    min-height: 60px !important;
+    min-height: 50px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     text-align: left !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .language-btn i {
-    font-size: 1.5rem !important;
+    font-size: 1.25rem !important;
     margin-bottom: 0 !important;
     flex-shrink: 0 !important;
   }
@@ -159,27 +197,34 @@
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 0.25rem !important;
+    width: 100% !important;
+    overflow: hidden !important;
   }
 
   /* Ações de configuração empilhadas */
   .config-actions {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.75rem !important;
-    margin-top: 1.5rem !important;
+    gap: 0.5rem !important;
+    margin-top: 1rem !important;
     align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .start-btn,
   .saved-btn {
     width: 100% !important;
-    padding: 1rem !important;
-    font-size: 1rem !important;
+    max-width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
     border-radius: 10px !important;
-    min-height: 50px !important;
+    min-height: 48px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-sizing: border-box !important;
     gap: 0.5rem !important;
   }
 
@@ -281,13 +326,19 @@
 
   /* Tela de resultados otimizada */
   .results-screen {
-    padding: 0.5rem !important;
+    padding: 0.25rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   .results-card {
-    margin: 0.5rem !important;
-    padding: 1rem !important;
+    margin: 0.25rem !important;
+    padding: 0.75rem !important;
     border-radius: 10px !important;
+    width: calc(100% - 0.5rem) !important;
+    max-width: calc(100vw - 0.5rem) !important;
+    box-sizing: border-box !important;
   }
 
   .results-card h2 {
@@ -327,25 +378,33 @@
 
   /* Conteúdo das abas compacto */
   .tab-panel {
-    padding: 1rem !important;
+    padding: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Resumo de resultados em coluna única */
   .results-summary {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
-    margin-bottom: 1.5rem !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .result-item {
-    padding: 1rem !important;
+    padding: 0.75rem !important;
     border-radius: 8px !important;
-    min-height: 80px !important;
+    min-height: 70px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .result-label {
@@ -358,30 +417,44 @@
   }
 
   /* Containers de análise compactos */
-  .skills-container,
-  .difficulty-container {
+  .skills-container {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Container de dificuldade - NÃO alterar pois contém a tabela especial */
+  .difficulty-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   /* Estatísticas compactas */
   .saved-stats {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
-    margin-bottom: 1.5rem !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .stat-item {
-    padding: 0.75rem !important;
+    padding: 0.5rem !important;
     border-radius: 8px !important;
     text-align: center !important;
-    min-height: 70px !important;
+    min-height: 60px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .stat-number {
@@ -393,11 +466,18 @@
   }
 
   /* Modal responsivo */
+  .modal {
+    padding: 0.25rem !important;
+    box-sizing: border-box !important;
+  }
+
   .modal-content {
-    margin: 1rem !important;
-    padding: 1rem !important;
+    margin: 0.25rem !important;
+    padding: 0.75rem !important;
     border-radius: 10px !important;
-    max-width: calc(100vw - 2rem) !important;
+    width: calc(100% - 0.5rem) !important;
+    max-width: calc(100vw - 0.5rem) !important;
+    box-sizing: border-box !important;
   }
 
   .modal-header h3 {
@@ -429,17 +509,34 @@
     min-height: 44px !important;
   }
 
-  /* Tabelas responsivas */
-  .table-responsive {
-    font-size: 0.8rem !important;
+  /* Tabelas responsivas (exceto tabela de dificuldade) */
+  .table-responsive:not(.difficulty-table .table-responsive):not(
+      .difficulty-questions-container
+    ) {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
   }
 
+  /* Container de gabarito e outras tabelas */
+  .answer-sheet-container,
+  .patterns-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+  }
+
+  /* Apenas reduzir padding das outras tabelas (não da difficulty) */
   .answer-sheet-container table th,
   .answer-sheet-container table td,
-  .difficulty-questions-table th,
-  .difficulty-questions-table td {
-    padding: 0.5rem !important;
-    font-size: 0.8rem !important;
+  .patterns-container table th,
+  .patterns-container table td {
+    padding: 0.4rem 0.2rem !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
   }
 
   /* Badges e status compactos */
@@ -612,24 +709,32 @@
     text-size-adjust: 100% !important;
   }
 
-  /* Garantir que não há overflow horizontal */
+  /* Garantir que não há overflow horizontal desnecessário - EXCETO para tabelas */
   html,
   body {
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    /* Removido overflow-x: hidden para permitir scroll em tabelas */
   }
 
   /* Ajustar o container principal */
   .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    box-sizing: border-box !important;
   }
 
   /* Melhorar a responsividade dos cards principais */
   .config-card,
   .results-card,
+  .saved-simulados-card {
+    width: calc(100% - 0.5rem) !important;
+    max-width: calc(100% - 0.5rem) !important;
+    box-sizing: border-box !important;
+    margin: 0.25rem auto !important;
+    padding: 0.75rem !important;
+  }
   .saved-simulados-card {
     width: 100% !important;
     max-width: 100% !important;
@@ -651,7 +756,7 @@
     box-sizing: border-box !important;
   }
 
-  /* Melhorar o comportamento de tabelas */
+  /* Melhorar o comportamento de tabelas gerais */
   .table-responsive {
     width: 100% !important;
     max-width: 100% !important;
@@ -797,12 +902,20 @@
     color: #ffffff !important;
   }
 
-  /* Garantir que não há scroll horizontal */
+  /* Controlar overflow apenas onde necessário - permitir scroll em tabelas */
   .config-screen,
   .results-screen,
   .saved-simulados-screen {
     width: 100% !important;
     max-width: 100vw !important;
+    /* Removido overflow-x: hidden para permitir scroll em tabelas */
+  }
+
+  /* Evitar overflow horizontal apenas em elementos específicos, não nas tabelas */
+  .config-card,
+  .results-card,
+  .saved-simulados-card,
+  .container:not(.table-responsive):not([class*="difficulty"]) {
     overflow-x: hidden !important;
   }
 
@@ -865,4 +978,339 @@
   h2 {
     font-size: 1.1rem !important;
   }
+}
+
+/* ===== TABELA DE DIFICULDADE - IMPLEMENTAÇÃO DEFINITIVA ===== */
+
+/* Containers sempre com scroll horizontal habilitado */
+.difficulty-container,
+.difficulty-analysis,
+.difficulty-tab {
+  overflow: visible !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+.difficulty-table .table-responsive,
+.difficulty-questions-container {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* Regras globais para a tabela de dificuldade */
+.difficulty-questions-table {
+  width: 100% !important;
+  min-width: 700px !important;
+  table-layout: auto !important;
+  border-collapse: collapse !important;
+  white-space: nowrap !important;
+}
+
+.difficulty-questions-table th,
+.difficulty-questions-table td {
+  white-space: nowrap !important;
+  padding: 0.75rem 0.5rem !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  min-width: 80px !important;
+}
+
+/* Container sempre com scroll horizontal */
+.difficulty-table .table-responsive,
+.difficulty-questions-container {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* Scrollbar customizada */
+.difficulty-table .table-responsive::-webkit-scrollbar,
+.difficulty-questions-container::-webkit-scrollbar {
+  height: 12px !important;
+}
+
+.difficulty-table .table-responsive::-webkit-scrollbar-track,
+.difficulty-questions-container::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 6px !important;
+}
+
+.difficulty-table .table-responsive::-webkit-scrollbar-thumb,
+.difficulty-questions-container::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 6px !important;
+}
+
+.difficulty-table .table-responsive::-webkit-scrollbar-thumb:hover,
+.difficulty-questions-container::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+/* Media query específica para mobile */
+@media (max-width: 768px) {
+  .difficulty-questions-table {
+    min-width: 600px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .difficulty-questions-table th,
+  .difficulty-questions-table td {
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .difficulty-questions-table {
+    min-width: 500px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .difficulty-questions-table th,
+  .difficulty-questions-table td {
+    padding: 0.4rem 0.2rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Scrollbar mais visível em mobile */
+  .difficulty-table .table-responsive::-webkit-scrollbar,
+  .difficulty-questions-container::-webkit-scrollbar {
+    height: 16px !important;
+  }
+
+  .difficulty-table .table-responsive::-webkit-scrollbar-thumb,
+  .difficulty-questions-container::-webkit-scrollbar-thumb {
+    background: #007bff !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Media query específica para telas muito pequenas (<400px) */
+@media (max-width: 400px) {
+  /* GARANTIR que o body permita scroll horizontal */
+  html,
+  body {
+    overflow-x: auto !important;
+  }
+
+  /* Forçar scroll horizontal na tabela de dificuldade */
+  .difficulty-container,
+  .difficulty-analysis,
+  .difficulty-tab,
+  .tab-panel {
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  .difficulty-table,
+  .difficulty-table .table-responsive,
+  .difficulty-questions-container {
+    overflow-x: scroll !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+
+  .difficulty-questions-table {
+    min-width: 600px !important;
+    width: auto !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .difficulty-questions-table th,
+  .difficulty-questions-table td {
+    white-space: nowrap !important;
+    padding: 0.3rem 0.15rem !important;
+    font-size: 0.7rem !important;
+    min-width: 70px !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  /* Scrollbar bem visível para indicar scroll disponível */
+  .difficulty-table .table-responsive::-webkit-scrollbar,
+  .difficulty-questions-container::-webkit-scrollbar {
+    height: 18px !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .difficulty-table .table-responsive::-webkit-scrollbar-thumb,
+  .difficulty-questions-container::-webkit-scrollbar-thumb {
+    background: #007bff !important;
+    border-radius: 9px !important;
+    border: 2px solid #ffffff !important;
+  }
+}
+
+/* SOBRESCREVER regras do standalone-theme.css que impedem scroll horizontal */
+@media (max-width: 400px) {
+  /* Garantir que o body NÃO tenha overflow-x: hidden */
+  html {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+  }
+
+  body {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Garantir que containers principais não bloqueiem scroll */
+  .layout,
+  .content,
+  .container {
+    overflow-x: visible !important;
+    max-width: 100% !important;
+  }
+
+  /* Sobrescrever qualquer regra que impeça scroll na área de resultados */
+  .results-screen,
+  .results-card,
+  .tab-content,
+  .tab-panel {
+    overflow-x: visible !important;
+    max-width: 100% !important;
+  }
+}
+
+/* PREVENIR OVERFLOW HORIZONTAL EM ELEMENTOS GERAIS */
+/* Garantir que TODOS os elementos (exceto tabela de dificuldade) não causem scroll horizontal */
+* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Exceções específicas para a tabela de dificuldade */
+.difficulty-questions-table,
+.difficulty-questions-table *,
+.difficulty-table .table-responsive,
+.difficulty-questions-container {
+  max-width: none !important;
+}
+
+/* Garantir que inputs e botões não causem overflow */
+input,
+textarea,
+select,
+button,
+.btn {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Garantir que imagens e mídia não causem overflow */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Garantir que texto longo não cause overflow */
+p,
+span,
+div:not(.difficulty-questions-table):not(.difficulty-table):not(
+    .table-responsive
+  ) {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+}
+
+/* Cards e containers principais */
+.card,
+.panel,
+.section {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Grid layouts responsivos */
+.grid,
+.flex,
+.d-flex {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* CORREÇÕES FINAIS PARA TEXTO E ELEMENTOS QUE PODEM CAUSAR OVERFLOW */
+
+/* Títulos responsivos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+  max-width: 100% !important;
+}
+
+/* Texto dos botões */
+.exam-type-btn span,
+.exam-type-btn small,
+.language-btn span,
+.language-btn small {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+}
+
+/* Inputs e campos de formulário */
+#gabarito-input,
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Prevenir que códigos ou URLs quebrem o layout */
+code,
+pre,
+.code {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: pre-wrap !important;
+  max-width: 100% !important;
+}
+
+/* Badges e status */
+.badge,
+.status-badge,
+.difficulty-level-badge {
+  word-wrap: break-word !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+}
+
+/* Links longos */
+a {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
 }
